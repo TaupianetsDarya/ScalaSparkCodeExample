@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-        image 'hseeberger/scala-sbt'
-
     stages {
         stage('Build') {
             steps {
