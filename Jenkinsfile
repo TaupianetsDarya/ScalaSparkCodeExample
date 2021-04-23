@@ -2,15 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                sh 'sbt test'
-                }
-            }
         stage('Test') {
-            steps {
-                sh 'sbt test'
-            }
+           steps {
+              echo "Compiling..."
+              sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt compile"
+           }
         }
     }
 }
